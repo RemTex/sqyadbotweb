@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.imagefit {
+    height: 100%;
+    width: 100%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1540px;
+    margin-top: 150px;
+    margin-left: 150px;
+}
+.invite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    
+}
+.AddBtn {
+    height: 104px;
+    width: 432px;
+    margin: 48px;
+    border: none;
+    font-size: 48px;
+    color:white;
+    border-radius: 25px;
+    background-color: #7289DA;
+    box-shadow: inset 0 0 50px #FF00F5;
+}
+#bottomcon {
+    margin-bottom: 150px;
+}
