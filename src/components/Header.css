@@ -1,0 +1,75 @@
+:root {
+    --header-color: #1E5128;
+    --btn_color : #D8E9A8;
+}
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #191A19;
+}
+.Header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--header-color);
+    border: none;
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    height: 60px;
+}
+
+.NavBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+    margin: 0 0 0 50px;
+}
+
+.DashboardBtn {
+    border: none;
+    border-radius: 20px;
+    background-color: var(--btn_color);
+    height: 40px;
+    width: 160px;
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 20px;
+    color: #fff;
+}
+
+
+.image_fit {
+    width: 55px;
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.TipaImg {
+    width: 55px;
+    height: 60px;
+}
