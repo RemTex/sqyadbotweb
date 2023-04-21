@@ -1,19 +1,19 @@
 import './App.css';
 import Header from './components/Header';
 import MainContainer from './components/MainContainer';
+import Footer from './components/Footer';
+import HelloBar from './components/HelloBar';
 
 const App = () => {
   return (
     <div>
       <Header/>
+      <HelloBar/>
       <MainContainer/>
   
-      {/* <Fotter>
-          <img className='image_fit' src={logo}></img>
-          <NavBlock>
-  
-          </NavBlock>
-      </Fotter> */}
+      <Footer>
+        
+      </Footer>
     </div>
   );
 }

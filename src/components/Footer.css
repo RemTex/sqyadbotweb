@@ -1,0 +1,16 @@
+* {
+    margin:0;
+    padding: 0;
+    border: none;
+}
+
+footer {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border: none;
+    height: auto;
+    width: auto;
+}

@@ -1,14 +1,11 @@
 import React from "react";
 import './MainContainer.css';
-import lower1 from './img/Vector upper.svg';
-import lower2 from './img/Vector lower.svg';
 import union from './img/Union.svg';
 import logo from './img/BLogo.svg';
 
 const MainContainer = () => {
     return (
         <div>
-            <img className="imagefit" src={lower1}></img>
             <div className="container">
                 <a>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, in! Minus, architecto sit rem rerum doloribus impedit eos officia, quisquam cupiditate cum cumque ratione temporibus placeat iusto, atque suscipit consequuntur!
@@ -33,7 +30,6 @@ const MainContainer = () => {
                 </a>
                 <img className="imagefit1" src={union}/>
             </div>
-            <img className="imagefit" src={lower2}></img>
         </div>
     );
 }
