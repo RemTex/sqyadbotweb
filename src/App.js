@@ -1,19 +1,23 @@
 import './App.css';
-import Header from './components/Header';
-import MainContainer from './components/MainContainer';
-import Footer from './components/Footer';
-import HelloBar from './components/HelloBar';
+import Header from './components/Header/Header';
+import MainContainer from './components/MainContainer/MainContainer';
+import Footer from './components/Footer/Footer';
+import HelloBar from './components/HelloBar/HelloBar';
+import DashBoard from './components/DashBoard/DashBoard';
 
 const App = () => {
   return (
     <div>
-      <Header/>
+      {/* <Header/>
       <HelloBar/>
       <MainContainer/>
-  
+        
       <Footer>
         
-      </Footer>
+      </Footer> */}
+      
+      <DashBoard/>
+
     </div>
   );
 }
