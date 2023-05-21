@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 13px;
+}
+h1 {
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 20px;
+    margin-left: 20px;
+}
+h2 {
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.user_name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user_id {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.exit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

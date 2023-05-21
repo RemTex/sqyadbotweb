@@ -1,7 +1,7 @@
 import React from "react";
 import './MainContainer.css';
 import union from './Union.svg';
-import logo from './BLogo.svg';
+import logo from './WLogo.svg';
 
 const MainContainer = () => {
     return (
@@ -19,7 +19,7 @@ const MainContainer = () => {
                 </a>
             </div>
             <div className="invite">
-                <img src={logo}></img>
+                <img src={logo} className="logo_middle_fit"></img>
                 <button className="AddBtn">
                     Add to discord
                 </button>

@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.server_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    height: 70px;
+    width: 400px;
+}
+
+.server_name .arrow_back {
+    margin-left: 28px;
+    transform: rotate(180deg);
+}
+
+.server_name .server_img {
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+span h1{
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 24px;
+}

@@ -1,14 +1,22 @@
-body {
+* {
     margin: 0;
     padding: 0;
     border: none;
 }
 
-.hello-bar {
+.image_fit {
+    height: auto;
+    width: 100%;
+}
+
+.servers_content {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    width: auto;
     height: auto;
+    width: auto;
+}
+
+.content_container {
+    height: 100vh;
 }

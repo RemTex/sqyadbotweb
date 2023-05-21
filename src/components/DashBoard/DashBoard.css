@@ -1,36 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Tomorrow:wght@600&display=swap');
-
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     border: none;
 }
 
+
 .container {
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    margin: 0;
-    height: auto;
-    width: 100%;
     background-color: #191A19;
 }
 
 .nav_container {
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
     background-color: #262626;
     width: 400px;
     height: 100vh;
-}
-
-nav {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 800px;
 }
 
 .main_logo_container {
@@ -51,6 +38,11 @@ nav {
     width: 400px;
     height: 116px;
 }
+
+.logo_container a{
+    margin: 0;
+}
+
 .user_container {
     display: flex;
     justify-content: center;
@@ -65,51 +57,9 @@ nav {
 .user {
     width: 320px;
     height: 76px;
-    background-color: #1E5128;
+    background-color: #233125;
     border: none;
     border-radius: 5px;
-}
-
-
-nav button {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    width: 400px;
-    height: 50px;
-    font-size: 24px;
-    background: none;
-    font-family: 'Tomorrow', sans-serif;
-    border: none;
-    border-radius: 6px;
-    transition: .2s;
-}
-
-#first {
-    margin-top: 72px;
-}
-
-.server_name {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-top: 30px;
-    height: 70px;
-    width: 400px;
-}
-
-.server_name .arrow_back {
-    margin-left: 28px;
-}
-
-.server_name .server_img {
-    margin-left: 32px;
-    margin-right: 32px;
-}
-
-span h1{
-    font-family: 'Tomorrow', sans-serif;
-    font-size: 24px;
 }
 
 .logo_container h1 {
@@ -121,22 +71,4 @@ span h1{
 .logo_fit {
     width: 70px;
     height: 76.36px;
-}
-
-nav button:is(:hover, :active) {
-    background-color: #333333;
-    padding: 0px;
-    transition: .2s;
-}
-
-nav button:is(:hover, :active) .selected{
-    opacity: 1;
-    margin-right: 25px;
-    transition: .2s;
-}
-
-.selected {
-    opacity: 0;
-    margin-left: 10px;
-    transition: .3s;
 }

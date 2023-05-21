@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Tomorrow:wght@600&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     color: #fff;
     border:none;
 }
+
+.logo_image_fit {
+    width: 55px;
+    height: 60px;
+}
+.logo_middle_fit {
+    width: 321px;
+    height: 350px;
+}
+

@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.image_fit {
+    height: auto;
+    width: 100%;
+}
+
+.about_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+
+.content_container {
+    height: 100vh;
+}

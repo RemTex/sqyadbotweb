@@ -5,7 +5,7 @@ import lowersvg from './Vector lower.svg';
 const Footer = () => {
     return(
         <footer>
-            <img src={lowersvg}/>
+            <img src={lowersvg} className="image_fit"/>
         </footer>
     )
 }
