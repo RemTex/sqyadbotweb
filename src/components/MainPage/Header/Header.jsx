@@ -3,7 +3,7 @@ import './Header.css';
 import logo from './WLogo.svg';
 import DashBoard from "../../DashBoard/DashBoard";
 import { Link } from "react-router-dom";
-const OAuth2 = require("discord-oauth2")
+import OAuth2 from "../../../Oauth/OAuth2";
 
 const oauth = new OAuth2({
     clientId: "1030561734840307803",
@@ -11,10 +11,7 @@ const oauth = new OAuth2({
     redirectUri: "http://localhost:3000/dashboard",
 });
 
-
-const url = oauth.generateAuthUrl({
-    scope: "identify",
-});
+const url = oauth.getRedirectUrl();
 
 const Header = () => {
     return (
