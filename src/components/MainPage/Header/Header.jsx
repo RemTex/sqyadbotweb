@@ -3,6 +3,17 @@ import './Header.css';
 import logo from './WLogo.svg';
 import DashBoard from "../../DashBoard/DashBoard";
 import { Link } from "react-router-dom";
+const OAuth2 = require("discord-oauth2")
+
+const oauth = new OAuth2({
+    clientId: "1030561734840307803",
+    clientSecret: "uJ0oHD9E1-_rgRBE5IrbSuq73OfdQO7H",
+    redirectUri: "http://localhost:3000/dashboard",
+});
+
+const url = oauth.generateAuthUrl({
+    scope: "identify",
+});
 
 const Header = () => {
     return (
@@ -22,9 +33,9 @@ const Header = () => {
 
             </div>
                 
-            <Link to="dashboard" className='DashboardBtn'>
+            <a href={url} className='DashboardBtn'>
                 DashBoard
-            </Link>
+            </a>
         </header>
     );
 }
