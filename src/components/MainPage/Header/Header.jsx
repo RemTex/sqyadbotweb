@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import OAuth2 from "../../../Oauth/OAuth2";
 
 const Header = () => {
-    
+
     const oauth = new OAuth2({
         clientId: "1030561734840307803",
         clientSecret: "uJ0oHD9E1-_rgRBE5IrbSuq73OfdQO7H",
