@@ -36,7 +36,7 @@ class OAuth2{
             grantType: "authorization_code",
             code: this.code,
 
-        }).then(response => {console.log(response)})
+        }).then(response => {console.log(response)}).catch(console.error)
             
         // _instance.authorizationCode = response.access_token;
         // _instance.refreshToken = response.refresh_token;
