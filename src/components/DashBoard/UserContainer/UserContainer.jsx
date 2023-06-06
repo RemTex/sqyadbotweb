@@ -4,10 +4,6 @@ import ExitElement from './ExitElem.svg';
 import UserImage from './UserImage.svg';
 import OAuth from '../../../Oauth/OAuth2';
 
-const url = new URL(window.location.href);
-
-const code = url.searchParams.get("code");
-
 /*TODO: Добавить получение гильдий, а также расширить wrapper для этого. Добавить парсинг данных о пользователе*/
 
 
@@ -18,9 +14,11 @@ const code = url.searchParams.get("code");
 
 const UserContainer = () => {
     
+    const url = new URL(window.location.href);
+    
     let oauth = new OAuth();
 
-    oauth.setUserCode(code)
+    oauth.setUserCode(url.searchParams.get("code"));
 
     const token = oauth.TokenRequest();
     

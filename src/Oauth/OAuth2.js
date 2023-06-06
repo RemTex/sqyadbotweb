@@ -1,47 +1,47 @@
 const DiscordOAuth2 = require("discord-oauth2");
 
-const OAuth2 = (() => {
-    let _instance = null;
-
-    return class OAuth2{
-        constructor(prop = {}){
-            if(_instance !== null){
-                return _instance;
-            };
-            
+class OAuth2{
+    constructor(prop = {}){
+        if(!OAuth2.instance){
             this.clientId = prop.clientId;
             this.clientSecret = prop.clientSecret;
             this.redirectUri = prop.redirectUri;
-
+    
             this.OAuth = new DiscordOAuth2({
                 clientId : this.clientId,
                 clientSecret : this.clientSecret,
                 redirectUri : this.redirectUri,
             });
-            _instance = this;
-        }
-        
-        setUserCode(code){
-            this.code = code;
-            _instance = this;
+
+            OAuth2.instance = this;            
         }
 
-        GetRedirecrtURL() {
-            return this.OAuth.generateAuthUrl({
-                scope: ["identify", "guilds"]
-            })
-        }
+        return OAuth2.instance;
+    }
+    
+    setUserCode(code){
+        OAuth2.instance.code = code;
+    }
 
-        TokenRequest(){
-            let response = console.log(this.OAuth.tokenRequest({
-                grantType: "authorization_code",
-                code: this.code,
+    GetRedirectURL() {
+        return this.OAuth.generateAuthUrl({
+            scope: ['identify', 'guilds'],
+            responseType: 'code'
+        })
+    }
 
-            }))
-            // this.authorizationCode = response.access_token;
-            // this.refreshToken = response.refresh_token;
-            // return console.log("Authorization code has responsed: ", this.authorizationCode, this.refreshToken);
-        }
-}});
+    async TokenRequest(){
+        /*let response = */
+        this.OAuth.tokenRequest({
+            grantType: "authorization_code",
+            code: this.code,
 
-export default OAuth2();
+        }).then(response => {console.log(response)})
+            
+        // _instance.authorizationCode = response.access_token;
+        // _instance.refreshToken = response.refresh_token;
+        // return console.log("Authorization code has responsed: ", _instance.authorizationCode, _instance.refreshToken);
+    }
+};
+
+export default OAuth2;
