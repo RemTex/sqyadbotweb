@@ -1,12 +1,6 @@
 const DiscordOauth2 = require("discord-oauth2");
 const oauth = new DiscordOauth2();
 
-const client_id = 'YOUR_CLIENT_ID';
-const client_secret = 'YOUR_CLIENT_SECRET';
-const redirect_uri = 'YOUR_REDIRECT_URI';
-
-const access_token = 'USER_ACCESS_TOKEN';
-
 // Получаем информацию о пользователе
 oauth.getUser(access_token)
   .then(user => {
