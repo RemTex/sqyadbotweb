@@ -5,15 +5,16 @@ import DashBoard from "../../DashBoard/DashBoard";
 import { Link } from "react-router-dom";
 import OAuth2 from "../../../Oauth/OAuth2";
 
-const oauth = new OAuth2({
-    clientId: "1030561734840307803",
-    clientSecret: "uJ0oHD9E1-_rgRBE5IrbSuq73OfdQO7H",
-    redirectUri: "http://localhost:3000/dashboard",
-});
-
-const url = oauth.getRedirectUrl();
-
 const Header = () => {
+    
+    const oauth = new OAuth2({
+        clientId: "1030561734840307803",
+        clientSecret: "uJ0oHD9E1-_rgRBE5IrbSuq73OfdQO7H",
+        redirectUri: "http://localhost:3000/dashboard",
+    });
+    
+    const url = oauth.GetRedirecrtURL();
+
     return (
         <header>
 

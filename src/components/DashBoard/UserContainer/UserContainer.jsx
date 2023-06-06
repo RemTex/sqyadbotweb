@@ -2,8 +2,7 @@ import React from 'react';
 import './UserContainer.css';
 import ExitElement from './ExitElem.svg';
 import UserImage from './UserImage.svg';
-import axios from "axios";
-import OAuth2 from '../../../Oauth/OAuth2';
+import OAuth from '../../../Oauth/OAuth2';
 
 const url = new URL(window.location.href);
 
@@ -11,9 +10,20 @@ const code = url.searchParams.get("code");
 
 /*TODO: Добавить получение гильдий, а также расширить wrapper для этого. Добавить парсинг данных о пользователе*/
 
-console.log(code);
+
+
+
+// console.log(token)
+
 
 const UserContainer = () => {
+    
+    let oauth = new OAuth();
+
+    oauth.setUserCode(code)
+
+    const token = oauth.TokenRequest();
+    
     return (
         <div id='container'>
             <div className='user_name'>

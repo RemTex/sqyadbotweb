@@ -23,23 +23,24 @@ const OAuth2 = (() => {
         
         setUserCode(code){
             this.code = code;
+            _instance = this;
         }
 
-        GetRedirtecrtURL() {
+        GetRedirecrtURL() {
             return this.OAuth.generateAuthUrl({
                 scope: ["identify", "guilds"]
             })
         }
 
         TokenRequest(){
-            let response = JSON.parse(this.OAuth.tokenRequest({
+            let response = console.log(this.OAuth.tokenRequest({
                 grantType: "authorization_code",
                 code: this.code,
 
             }))
-            this.authorizationCode = response.access_token;
-            this.refreshToken = response.refresh_token;
-            return console.log("Authorization code has responsed: ", this.authorizationCode, this.refreshToken);
+            // this.authorizationCode = response.access_token;
+            // this.refreshToken = response.refresh_token;
+            // return console.log("Authorization code has responsed: ", this.authorizationCode, this.refreshToken);
         }
 }});
 
