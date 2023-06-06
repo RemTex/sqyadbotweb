@@ -11,7 +11,7 @@ const oauth = new OAuth2({
     redirectUri: "http://localhost:3000/dashboard",
 });
 
-const url = oauth.getRedirectUrl();
+const url = oauth.GetRedirectURL();
 
 const Header = () => {
     return (

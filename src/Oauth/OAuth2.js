@@ -25,7 +25,7 @@ const OAuth2 = (() => {
             this.code = code;
         }
 
-        GetRedirtecrtURL() {
+        GetRedirectURL() {
             return this.OAuth.generateAuthUrl({
                 scope: ["identify", "guilds"]
             })
