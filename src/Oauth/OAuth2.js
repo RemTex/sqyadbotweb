@@ -30,18 +30,11 @@ class OAuth2{
         })
     }
 
-    async TokenRequest(){
-        /*let response = */
-        this.OAuth.tokenRequest({
-            grantType: "authorization_code",
-            code: this.code,
+    tokenRequest = () => this.OAuth.tokenRequest({
+        code: this.code,
+        grantType: "authorization_code"
+    })
 
-        }).then(response => {console.log(response)}).catch(console.error)
-            
-        // _instance.authorizationCode = response.access_token;
-        // _instance.refreshToken = response.refresh_token;
-        // return console.log("Authorization code has responsed: ", _instance.authorizationCode, _instance.refreshToken);
-    }
 };
 
 export default OAuth2;
