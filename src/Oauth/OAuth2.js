@@ -6,6 +6,10 @@ class OAuth2{
             this.clientId = prop.clientId;
             this.clientSecret = prop.clientSecret;
             this.redirectUri = prop.redirectUri;
+
+            this.code = null;
+            this.accessToken = null;
+            this.refreshToken = null;
     
             this.OAuth = new DiscordOAuth2({
                 clientId : this.clientId,
@@ -23,6 +27,16 @@ class OAuth2{
         OAuth2.instance.code = code;
     }
 
+    async parseData(data){
+        console.log(data);
+
+        this.accessToken = data.access_token;
+        this.refreshToken = data.refresh_token;
+        
+        OAuth2.instance = this;
+        console.log(this.accessToken, this.refreshToken)
+    }
+
     GetRedirectURL() {
         return this.OAuth.generateAuthUrl({
             scope: ['identify', 'guilds'],
@@ -33,7 +47,7 @@ class OAuth2{
     tokenRequest = () => this.OAuth.tokenRequest({
         code: this.code,
         grantType: "authorization_code"
-    })
+    }).then(async (data) => {await this.parseData(data)});
 
 };
 

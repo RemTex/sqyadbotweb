@@ -19,11 +19,8 @@ const UserContainer = () => {
     let oauth = new OAuth();
 
     oauth.setUserCode(url.searchParams.get("code"));
-
-    const token = oauth.tokenRequest();
     
-
-    console.log(token);
+    oauth.tokenRequest();
     
     return (
         <div id='container'>
