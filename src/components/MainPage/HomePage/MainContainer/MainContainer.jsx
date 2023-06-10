@@ -20,9 +20,9 @@ const MainContainer = () => {
             </div>
             <div className="invite">
                 <img src={logo} className="logo_middle_fit"></img>
-                <button className="AddBtn">
+                <a href="https://discord.com/api/oauth2/authorize?client_id=1030561734840307803&permissions=8&scope=bot" className="AddBtn">
                     Add to discord
-                </button>
+                </a>
             </div>
             <div className="container" id="bottomcon">
                 <a>
