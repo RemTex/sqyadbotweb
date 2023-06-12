@@ -35,6 +35,11 @@
     background-color: #7289DA;
     box-shadow: inset 0 0 50px #FF00F5;
 }
+.AddBtn:hover {
+    background-color: #7289DA;
+}
+
 #bottomcon {
     margin-bottom: 150px;
 }
+
