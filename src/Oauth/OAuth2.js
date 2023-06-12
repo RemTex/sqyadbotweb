@@ -27,11 +27,11 @@ class OAuth2{
         OAuth2.instance.code = code;
     }
 
-    async parseData(data){
+    async parseTokens(data){
         console.log(data);
 
-        this.accessToken = data.access_token;
-        this.refreshToken = data.refresh_token;
+        this.accessToken = data.access_token.toString();
+        this.refreshToken = data.refresh_token.toString();
         
         OAuth2.instance = this;
         console.log(this.accessToken, this.refreshToken)
@@ -44,11 +44,21 @@ class OAuth2{
         })
     }
 
-    tokenRequest = () => this.OAuth.tokenRequest({
+    tokenRequest = async () => await this.OAuth.tokenRequest({
         code: this.code,
         grantType: "authorization_code"
-    }).then(async (data) => {await this.parseData(data)});
+    }).then(async (data) => {await this.parseTokens(data); await this.getUser()});
 
-};
+    getUser = async () => { 
+        
+        await this.OAuth.getUser(this.accessToken).then((response) => {
+            this.userId = response.id;
+            this.avatar = response.avatar;
+            this.userName = response.username;
+        });
+        await console.log(this.userId, this.avatar, this.userName);
+    }
+
+}
 
 export default OAuth2;

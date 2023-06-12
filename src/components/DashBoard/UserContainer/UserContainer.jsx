@@ -6,12 +6,6 @@ import OAuth from '../../../Oauth/OAuth2';
 
 /*TODO: Добавить получение гильдий, а также расширить wrapper для этого. Добавить парсинг данных о пользователе*/
 
-
-
-
-// console.log(token)
-
-
 const UserContainer = () => {
     
     const url = new URL(window.location.href);
@@ -20,8 +14,10 @@ const UserContainer = () => {
 
     oauth.setUserCode(url.searchParams.get("code"));
     
-    oauth.tokenRequest();
+    (async () => {await oauth.tokenRequest();})();
     
+    console.log(OAuth.instance)
+
     return (
         <div id='container'>
             <div className='user_name'>
