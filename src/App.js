@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Servers from './components/MainPage/Servers/Servers';
 import About from './components/MainPage/About/About';
 import Home from './components/MainPage/HomePage/Home';
+import LoginPage from './components/DashBoard/LoginPage/LoginPage';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
               <Route path='/servers' element={<Servers/>}/>
             </Route>
             <Route path='/dashboard' element={<DashBoard/>}/>
+            <Route path='/loginpage' element={<LoginPage/>}/>
           </Routes>
       </div>
     </BrowserRouter>

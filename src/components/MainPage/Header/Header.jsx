@@ -7,8 +7,8 @@ import OAuth2 from "../../../Oauth/OAuth2";
 
 const oauth = new OAuth2({
     clientId: "1030561734840307803",
-    clientSecret: "uJ0oHD9E1-_rgRBE5IrbSuq73OfdQO7H",
-    redirectUri: "http://localhost:3000/dashboard",
+    clientSecret: "7HWeBOrHjMSNznm9v56FcTTITlKRyX5v",
+    redirectUri: "http://localhost:3000/loginpage",
 });
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
         <header>
 
             <Link to="/">
-                <img className="logo_image_fit" src={logo}/>    
+                <img className="logo_image_fit" src={logo}/>
             </Link>
 
             <div className="NavBar">
