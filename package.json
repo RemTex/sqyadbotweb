@@ -16,6 +16,7 @@
     "dotenv": "^16.1.3",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
+    "gh-pages": "^5.0.0",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
     "https-browserify": "^1.0.0",
@@ -41,6 +42,8 @@
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
