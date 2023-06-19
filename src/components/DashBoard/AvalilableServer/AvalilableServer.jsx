@@ -10,7 +10,7 @@ const AvalilableServer = () => {
             <img src={server_img} className="server_img"/>
             <span>
                 <h1>
-                    Server name
+                    Сервер testapp
                 </h1>
             </span>
         </div>

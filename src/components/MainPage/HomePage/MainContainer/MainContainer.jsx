@@ -7,29 +7,47 @@ const MainContainer = () => {
     return (
         <div>
             <div className="container">
-                <a>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, in! Minus, architecto sit rem rerum doloribus impedit eos officia, quisquam cupiditate cum cumque ratione temporibus placeat iusto, atque suscipit consequuntur!
+                <a className="function_text">
+                    Модерация
+                    <br />
+                    <br />
+                    <li>
+                        Удобный интерфейс взаимодейсвия.
+                    </li>
+
+                    <li>
+                        Просмотр логов модерации
+                    </li>
                 </a>
                 <img className="imagefit1" src={union}/>
-            </div>
-            <div className="container">
-                <img className="imagefit1" src={union}/>
-                <a>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti asperiores dolorem aut alias assumenda fugiat, commodi mollitia esse quis a quas laudantium accusamus, quidem voluptate cum sunt fugit sed impedit.
-                </a>
             </div>
             <div className="invite">
                 <img src={logo} className="logo_middle_fit"></img>
-                <a href="https://discord.com/api/oauth2/authorize?client_id=1030561734840307803&permissions=8&scope=bot" className="AddBtn">
+                <a href="https://discord.com/api/oauth2/authorize?client_id=1119512250118590555&permissions=8&scope=bot" className="AddBtn">
                     Add to discord
                 </a>
             </div>
-            <div className="container" id="bottomcon">
+            <div className="container">
+                <img className="imagefit1" id="bottomcon" src={union}/>
+                <a className="function_text">
+                    Большие данные
+                    <br/>
+                    <br />
+                    <li>
+                        Возможность просмотра данных сервера.
+                    </li>
+
+                    <li>
+                        Просмотр предсказаний для вашего сервера.
+                    </li>
+                </a>
+            </div>
+            {/* <div className="container" id="bottomcon">
                 <a>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quo iusto voluptatum tempore aliquam nobis consequuntur. Ab velit fuga, obcaecati temporibus alias expedita in blanditiis sunt pariatur impedit, debitis fugit.
+                    
                 </a>
                 <img className="imagefit1" src={union}/>
-            </div>
+            </div> */}
         </div>
     );
 }

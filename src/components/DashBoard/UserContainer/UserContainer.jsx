@@ -4,6 +4,7 @@ import ExitElement from './ExitElem.svg';
 import UserImage from './UserImage.svg';
 
 const UserContainer = () => {
+
     return (
         <div id='container'>
             <div className='user_name'>
@@ -12,7 +13,7 @@ const UserContainer = () => {
                 <div className='user_id'>
                     <h1>
                         <span>
-                            {}
+                            testapp
                         </span>
                     </h1>
                 </div>

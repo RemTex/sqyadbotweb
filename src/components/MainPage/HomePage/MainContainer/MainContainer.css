@@ -22,12 +22,16 @@
     align-items: center;
     flex-direction: column;
     margin-top: 150px;
+    margin-bottom: 150px;
     
 }
 .AddBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 104px;
     width: 432px;
-    margin-top: 48px;
+    margin: 48px 0 0 0;
     border: none;
     font-size: 48px;
     color:white;
@@ -40,6 +44,21 @@
 }
 
 #bottomcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 150px;
 }
 
+.function_text {
+    line-height: 60px;
+    color: #D8E9A8;
+    height: auto;
+    width: 100%;
+    font-size: 30px;
+}
+
+li {
+    list-style-image: url(Selected_icon.svg);
+    list-style-type: square;
+}

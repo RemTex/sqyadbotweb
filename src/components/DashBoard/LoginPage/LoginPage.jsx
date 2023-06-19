@@ -1,10 +1,9 @@
 import React from "react";
 import OAuth from "../../../Oauth/OAuth2";
 
-
 const LoginPage = () => {
+
     const oauth = new OAuth();
-    let data;
 
     const url = new URL(window.location.href);
 
@@ -14,9 +13,7 @@ const LoginPage = () => {
 
     oauth.tokenRequest()
 
-    data = OAuth.instance
-
-    console.log(data.avatar)
+    console.log(OAuth.instance.code)
 
     return(
         <>
