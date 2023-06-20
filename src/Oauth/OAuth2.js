@@ -45,6 +45,17 @@ class OAuth2{
             await this.userGuildsRequest();
     });
 
+    refreshTokenRequest = async () => await this.OAuth.tokenRequest({
+        grantType: 'refresh_token',
+        refreshToken: this.refreshToken
+    }).then(async data => {
+        this.accessToken = data.access_token;
+        this.refreshToken = data.refresh_token;
+        
+        await this.userRequest();
+        await this.userGuildsRequest();
+    });
+
     userRequest = async () => { 
         
         await this.OAuth.getUser(this.accessToken).then((response) => {

@@ -7,9 +7,19 @@ import { useOAuth } from "../../../OAuthProvider/OAuthProvider";
 
 const Header = () => {
 
-    const oauth = useOAuth().oauth
+    const oauth = useOAuth().oauth;
 
-    const url = oauth.GetRedirectURL();
+    let url;
+
+    if(oauth.accessToken != null){
+        useEffect(() => {oauth.refreshTokenRequest().then(() => {
+            localStorage.setItem('authenticated_user', JSON.stringify(oauth));
+        })},[]);
+        url = "/dashboard";
+    }
+    else{
+        url = oauth.GetRedirectURL();
+    }
 
     return (
         <header>
@@ -27,10 +37,10 @@ const Header = () => {
                 <Link to="/servers">Servers</Link>
 
             </div>
-                
-            <a href={url} className='DashboardBtn'>
+
+            <Link to={url} className='DashboardBtn'>
                 DashBoard
-            </a>
+            </Link>
         </header>
     );
 }
