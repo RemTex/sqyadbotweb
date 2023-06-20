@@ -3,42 +3,20 @@ const DiscordOAuth2 = require("discord-oauth2");
 
 class OAuth2{
     constructor(prop = {}){
-        if(!OAuth2.instance){
-            this.clientId = prop.clientId;
-            this.clientSecret = prop.clientSecret;
-            this.redirectUri = prop.redirectUri;
 
-            this.code = null;
-            this.accessToken = null;
-            this.refreshToken = null;
-            this.userName = null;
-            this.avatar = null;
-            this.userId = null;
-    
-            this.OAuth = new DiscordOAuth2({
-                clientId : this.clientId,
-                clientSecret : this.clientSecret,
-                redirectUri : this.redirectUri,
-            });
+        this.clientId = prop.clientId;
+        this.clientSecret = prop.clientSecret;
+        this.redirectUri = prop.redirectUri;
 
-            OAuth2.instance = this;            
-        }
-
-        return OAuth2.instance;
+        this.OAuth = new DiscordOAuth2({
+            clientId : this.clientId,
+            clientSecret : this.clientSecret,
+            redirectUri : this.redirectUri,
+        });
     }
     
     setUserCode(code){
-        OAuth2.instance.code = code;
-
-        OAuth2.instance = this;
-    }
-
-    async parseTokens(data){
-
-        this.accessToken = data.access_token;
-        this.refreshToken = data.refresh_token;
-        
-        OAuth2.instance = this;
+        this.code = code
     }
 
     GetRedirectURL() {
@@ -52,17 +30,33 @@ class OAuth2{
         code: this.code,
         grantType: "authorization_code"
     }).then(async (data) => {
-        await this.parseTokens(data);
-        await this.getUser()
+        this.accessToken = data.access_token;
+        this.refreshToken = data.refresh_token;
+
+        await this.userRequest();
+        await this.userGuildsRequest();
     });
 
-    getUser = async () => { 
+    userRequest = async () => { 
         
         await this.OAuth.getUser(this.accessToken).then((response) => {
             this.userId = response.id;
             this.avatar = response.avatar;
             this.userName = response.username;
+
+            this.avatarURL = `https://cdn.discordapp.com/avatars/${this.userId}/${this.avatar}.png`
         });
     }
+
+    userGuildsRequest = async () => {
+        await this.OAuth.getUserGuilds(this.accessToken).then(response => {
+            console.log(response)
+        })
+    }
+
+    getUserData = async () => {
+        return this.userName, this.avatarURL
+    }
+
 }
 export default OAuth2;
