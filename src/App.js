@@ -8,6 +8,7 @@ import About from './components/MainPage/About/About';
 import Home from './components/MainPage/HomePage/Home';
 import LoginPage from './components/DashBoard/LoginPage/LoginPage';
 import { OAuthContextProvider } from './OAuthProvider/OAuthProvider';
+import BigData from './components/DashBoard/BigDataPage/BigDataPage';
 
 
 const App = () => {
@@ -27,6 +28,10 @@ const App = () => {
         </div>
       </OAuthContextProvider>
     </Router>
+
+    // <div>
+    //   <BigData></BigData>
+    // </div>
   );
 }
 

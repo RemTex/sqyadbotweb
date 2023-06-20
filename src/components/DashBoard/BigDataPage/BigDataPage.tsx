@@ -5,15 +5,15 @@ import {Line} from 'react-chartjs-2';
 const BigData = () => {
     return (
         <div>
-            <Line 
-                data={{
-                    labels: ["слово19", "слово20"],
+            <Line data={
+                {
+                    labels: ['1','2'],
                     datasets: [{
-                        label: 'red',
-                        data: [14, 7]
-                    }]}
+                        label: 'r',
+                        data: [1,3]
+                    }],
                 }
-            />
+            }/>
         </div>
     )
 }

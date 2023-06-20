@@ -3,12 +3,12 @@
     margin: 0;
     border: none;
 }
-div {
+/* div {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
+} */
 
 .section {
     border: 3px solid black;
