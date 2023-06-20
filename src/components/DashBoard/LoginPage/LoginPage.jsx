@@ -13,7 +13,13 @@ const LoginPage = () => {
 
     const navigation = useNavigate()
 
-    useEffect(() => {oauth.tokenRequest().then(() => navigation("/dashboard"))})  
+    useEffect(() => {oauth.tokenRequest()
+        .then(() => {
+
+            localStorage.setItem('authenticated_user', JSON.stringify(oauth));
+            
+            navigation("/dashboard")})
+    })  
 
     return(
         <>

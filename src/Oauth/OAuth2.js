@@ -7,6 +7,14 @@ class OAuth2{
         this.clientId = prop.clientId;
         this.clientSecret = prop.clientSecret;
         this.redirectUri = prop.redirectUri;
+        this.accessToken = prop.accessToken;
+        this.refreshToken = prop.refreshToken;
+        this.code = prop.code;
+        this.userId = prop.userId;
+        this.globalName = prop.globalName;
+        this.avatar = prop.avatar;
+        this.avatarURL = prop.avatarURL;
+        this.guilds = prop.guilds;
 
         this.OAuth = new DiscordOAuth2({
             clientId : this.clientId,
@@ -42,8 +50,7 @@ class OAuth2{
         await this.OAuth.getUser(this.accessToken).then((response) => {
             this.userId = response.id;
             this.avatar = response.avatar;
-            this.userName = response.username;
-
+            this.globalName = response.global_name;
             this.avatarURL = `https://cdn.discordapp.com/avatars/${this.userId}/${this.avatar}.png`;
         });
     }
@@ -53,14 +60,5 @@ class OAuth2{
             this.guilds = response;
         })
     }
-
-    getUserData = () => {
-        return this.userName, this.avatarURL;
-    }
-
-    getUserGuilds = () => {
-        return this.guilds;
-    }
-
 }
 export default OAuth2;

@@ -38,3 +38,14 @@ h2 {
     justify-content: center;
     align-items: center;
 }
+.user_img_container {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 25px;
+
+}
+.user_img_container img {
+    width: 50px;
+    height: 50px;
+}

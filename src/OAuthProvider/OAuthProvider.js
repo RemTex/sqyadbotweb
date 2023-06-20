@@ -5,14 +5,32 @@ const OAuthContext = createContext(null)
 
 
 export const OAuthContextProvider = ({ children }) => {
-    const oauthObject = new OAuth({
-        clientId: "1030561734840307803",
-    clientSecret: "7HWeBOrHjMSNznm9v56FcTTITlKRyX5v",
-    redirectUri: "http://localhost:3000/loginpage",
-    });
+
+    let oauthObject;
+
+    if (localStorage.getItem('authenticated_user') !== null) {
+        
+        oauthObject = localStorage.getItem('authenticated_user');
+        oauthObject = JSON.parse(oauthObject);
+        oauthObject = new OAuth(oauthObject)
+
+    } else {
+        oauthObject = new OAuth({
+            clientId: "1030561734840307803",
+            clientSecret: "7HWeBOrHjMSNznm9v56FcTTITlKRyX5v",
+            redirectUri: "http://localhost:3000/loginpage",
+        });
+    }
+
     const [oauth, setOauth] = useState(oauthObject)
 
-    return <OAuthContext.Provider value={{oauth, setOauth}}>
+    const setOauthContext = (authenticated_user) => {
+        localStorage.setItem('authenticated_user', JSON.stringify(authenticated_user) );
+        console.log('asdfasd')
+        setOauth(authenticated_user)
+    }
+
+    return <OAuthContext.Provider value={{oauth, setOauth: setOauthContext}}>
         { children }
     </OAuthContext.Provider>
 };
