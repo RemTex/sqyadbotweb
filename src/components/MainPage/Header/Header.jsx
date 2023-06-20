@@ -11,10 +11,14 @@ const Header = () => {
 
     let url;
 
+    console.log(Date.parse(oauth.createdAt) + new Date().setSeconds(oauth.expiresIn))
+
     if(oauth.accessToken != null){
-        useEffect(() => {oauth.refreshTokenRequest().then(() => {
-            localStorage.setItem('authenticated_user', JSON.stringify(oauth));
-        })},[]);
+        if(Date.parse(oauth.createdAt) + new Date().setSeconds(oauth.expiresIn) <= Date.now()){
+            useEffect(() => {oauth.refreshTokenRequest().then(() => {
+                localStorage.setItem('authenticated_user', JSON.stringify(oauth));
+            })},[]);
+        }
         url = "/dashboard";
     }
     else{

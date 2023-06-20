@@ -1,5 +1,4 @@
-import React, { Component, useEffect } from "react";
-import OAuth from "../../../Oauth/OAuth2";
+import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useOAuth } from "../../../OAuthProvider/OAuthProvider";
 
