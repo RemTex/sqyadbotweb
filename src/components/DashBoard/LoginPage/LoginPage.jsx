@@ -1,23 +1,22 @@
-import React from "react";
+import React, { Component, useEffect } from "react";
 import OAuth from "../../../Oauth/OAuth2";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useOAuth } from "../../../OAuthProvider/OAuthProvider";
 
 const LoginPage = () => {
 
-    const oauth = new OAuth();
+    const oauth = useOAuth().oauth;
 
-    const url = new URL(window.location.href);
+    let [searchParams, setSearchParams] = useSearchParams();
 
-    oauth.setUserCode(url.searchParams.get("code"));
+    oauth.setUserCode(searchParams.get("code"));
 
-    const url1 = oauth.GetRedirectURL();
+    const navigation = useNavigate()
 
-    oauth.tokenRequest()
-
-    console.log(OAuth.instance.code)
+    useEffect(() => {oauth.tokenRequest().then(() => navigation("/dashboard"))})  
 
     return(
         <>
-
         </>
     )
 }

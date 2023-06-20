@@ -2,8 +2,11 @@ import React from 'react';
 import './UserContainer.css';
 import ExitElement from './ExitElem.svg';
 import UserImage from './UserImage.svg';
+import { useOAuth } from '../../../OAuthProvider/OAuthProvider';
 
 const UserContainer = () => {
+
+    const oauth = useOAuth().oauth;
 
     return (
         <div id='container'>
@@ -13,7 +16,7 @@ const UserContainer = () => {
                 <div className='user_id'>
                     <h1>
                         <span>
-                            testapp
+                            {}
                         </span>
                     </h1>
                 </div>
