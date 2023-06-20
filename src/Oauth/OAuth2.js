@@ -16,7 +16,7 @@ class OAuth2{
     }
     
     setUserCode(code){
-        this.code = code
+        this.code = code;
     }
 
     GetRedirectURL() {
@@ -29,12 +29,12 @@ class OAuth2{
     tokenRequest = async () => await this.OAuth.tokenRequest({
         code: this.code,
         grantType: "authorization_code"
-    }).then(async (data) => {
-        this.accessToken = data.access_token;
-        this.refreshToken = data.refresh_token;
+        }).then(async (data) => {
+            this.accessToken = data.access_token;
+            this.refreshToken = data.refresh_token;
 
-        await this.userRequest();
-        await this.userGuildsRequest();
+            await this.userRequest();
+            await this.userGuildsRequest();
     });
 
     userRequest = async () => { 
@@ -44,18 +44,22 @@ class OAuth2{
             this.avatar = response.avatar;
             this.userName = response.username;
 
-            this.avatarURL = `https://cdn.discordapp.com/avatars/${this.userId}/${this.avatar}.png`
+            this.avatarURL = `https://cdn.discordapp.com/avatars/${this.userId}/${this.avatar}.png`;
         });
     }
 
     userGuildsRequest = async () => {
         await this.OAuth.getUserGuilds(this.accessToken).then(response => {
-            console.log(response)
+            this.guilds = response;
         })
     }
 
-    getUserData = async () => {
-        return this.userName, this.avatarURL
+    getUserData = () => {
+        return this.userName, this.avatarURL;
+    }
+
+    getUserGuilds = () => {
+        return this.guilds;
     }
 
 }
