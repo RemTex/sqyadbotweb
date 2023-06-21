@@ -47,6 +47,7 @@ class OAuth2{
             this.accessToken = data.access_token;
             this.refreshToken = data.refresh_token;
             this.expiresIn = data.expires_in;
+            this.createdAt = Date.now();
 
             await this.userRequest();
             await this.userGuildsRequest();

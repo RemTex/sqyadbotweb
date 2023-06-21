@@ -3,7 +3,7 @@ import './Header.css';
 import logo from './WLogo.svg';
 import { Link } from "react-router-dom";
 import OAuth2 from "../../../Oauth/OAuth2";
-import { useOAuth } from "../../../OAuthProvider/OAuthProvider";
+import { OAuthContextProvider, useOAuth } from "../../../OAuthProvider/OAuthProvider";
 
 const Header = () => {
 
@@ -11,14 +11,11 @@ const Header = () => {
 
     let url;
 
-    console.log(Date.parse(oauth.createdAt) + new Date().setSeconds(oauth.expiresIn))
+    if(oauth.accessToken != null && oauth.createdAt + oauth.expiresIn <= Date.now()){
+        useEffect(() => {oauth.refreshTokenRequest().then(() => {
+            OAuthContextProvider.setOauthContext(oauth)
+        })},[]);
 
-    if(oauth.accessToken != null){
-        if(Date.parse(oauth.createdAt) + new Date().setSeconds(oauth.expiresIn) <= Date.now()){
-            useEffect(() => {oauth.refreshTokenRequest().then(() => {
-                localStorage.setItem('authenticated_user', JSON.stringify(oauth));
-            })},[]);
-        }
         url = "/dashboard";
     }
     else{
