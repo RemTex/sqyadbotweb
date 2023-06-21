@@ -11,10 +11,11 @@ const Header = () => {
 
     let url;
 
-    if(oauth.accessToken != null && oauth.createdAt + oauth.expiresIn <= Date.now()){
+    if(oauth.accessToken != null){
+        if(oauth.createdAt + oauth.expiresIn <= Date.now()){
         useEffect(() => {oauth.refreshTokenRequest().then(() => {
-            OAuthContextProvider.setOauthContext(oauth)
-        })},[]);
+            localStorage.setItem('authenticated_user', JSON.stringify(oauth));
+        })},[]);}
 
         url = "/dashboard";
     }
