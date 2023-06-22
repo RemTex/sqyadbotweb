@@ -9,25 +9,34 @@ import Home from './components/MainPage/HomePage/Home';
 import LoginPage from './components/DashBoard/LoginPage/LoginPage';
 import { OAuthContextProvider } from './OAuthProvider/OAuthProvider';
 import BigData from './components/DashBoard/BigDataPage/BigDataPage';
-
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from 'react-query';
 
 const App = () => {
+
+  const queryClient = new QueryClient();
+
   return (
-    <Router>
-      <OAuthContextProvider>
-        <div>
-            <Routes>
-              <Route path='/' element={<MainPage/>}>
-                <Route index element={<Home/>}/>
-                <Route path='/about' element={<About/>}/>
-                <Route path='/servers' element={<Servers/>}/>
-              </Route>
-              <Route path='/dashboard' element={<DashBoard/>}/>
-              <Route path='/loginpage' element={<LoginPage/>}/>
-            </Routes>
-        </div>
-      </OAuthContextProvider>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <OAuthContextProvider>
+          <div>
+              <Routes>
+                <Route path='/' element={<MainPage/>}>
+                  <Route index element={<Home/>}/>
+                  <Route path='/about' element={<About/>}/>
+                  <Route path='/servers' element={<Servers/>}/>
+                </Route>
+                <Route path='/dashboard' element={<DashBoard/>}/>
+                <Route path='/loginpage' element={<LoginPage/>}/>
+              </Routes>
+          </div>
+        </OAuthContextProvider>
+      </Router>
+    </QueryClientProvider>
 
     // <div>
     //   <BigData></BigData>
