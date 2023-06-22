@@ -31,11 +31,11 @@ const Header = () => {
 
             <div className="NavBar">
                 
-                <Link to="/">Home</Link>
+                <Link to="/">Главная</Link>
 
-                <Link to="/about">About</Link>
+                <Link to="/about">О нас</Link>
 
-                <Link to="/servers">Servers</Link>
+                <Link to="/servers">Сервера</Link>
 
             </div>
 

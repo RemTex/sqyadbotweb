@@ -3,14 +3,15 @@ import "./AvalilableServer.css";
 import arrow from "./arrow.svg";
 import server_img from "./SeverImage.svg";
 
-const AvalilableServer = () => {
+const AvalilableServer = (props) => {
+
     return(
         <div className="server_container">
             <img src={arrow} className="arrow_back"/>
             <img src={server_img} className="server_img"/>
             <span>
                 <h1>
-                    Сервер testapp
+                    {}
                 </h1>
             </span>
         </div>

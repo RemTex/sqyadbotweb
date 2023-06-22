@@ -14,10 +14,6 @@ const NavFunction = () => {
             </button>
             <button>
                 <img src={select_img} className="selected"/>
-                Private room
-            </button>
-            <button>
-                <img src={select_img} className="selected"/>
                 BigData
             </button>
         </nav>

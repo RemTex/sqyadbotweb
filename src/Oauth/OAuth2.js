@@ -50,7 +50,6 @@ class OAuth2{
             this.createdAt = Date.now();
 
             await this.userRequest();
-            await this.userGuildsRequest();
     });
 
     refreshTokenRequest = async () => await this.OAuth.tokenRequest({
@@ -79,6 +78,7 @@ class OAuth2{
         await this.OAuth.getUserGuilds(this.accessToken).then(response => {
             this.guilds = response;
         })
+        return this.guilds;
     }
 }
 export default OAuth2;
