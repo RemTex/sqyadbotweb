@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useOAuth } from "../../../OAuthProvider/OAuthProvider";
 import { useQuery } from "react-query";
+import './LoginPage.css';
 
 const LoginPage = () => {
 
@@ -23,7 +24,7 @@ const LoginPage = () => {
         }
     );
 
-    if (isLoading) {
+    if (!isLoading) {
         return(
             <div className="loading-body">
                 <div className="loading-container">

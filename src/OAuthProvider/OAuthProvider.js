@@ -6,11 +6,10 @@ const OAuthContext = createContext(null)
 
 export const OAuthContextProvider = ({ children }) => {
 
-    let oauthObject;
+    let oauthObject = localStorage.getItem('authenticated_user');
 
-    if (localStorage.getItem('authenticated_user') !== null) {
+    if (oauthObject !== null) {
         
-        oauthObject = localStorage.getItem('authenticated_user');
         oauthObject = JSON.parse(oauthObject);
         oauthObject = new OAuth(oauthObject)
 
