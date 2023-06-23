@@ -11,16 +11,17 @@ const Header = () => {
 
     let url;
 
-    if(oauth.accessToken != null && oauth.createdAt + oauth.expiresIn <= Date.now()){
-        useEffect(() => {oauth.refreshTokenRequest().then(() => {
-            localStorage.setItem('authenticated_user', JSON.stringify(oauth))
-        })},[]);
+    // if(oauth.accessToken != null){
+    //     if(oauth.createdAt + oauth.expiresIn <= Date.now()){
+    //         useEffect(() => {oauth.refreshTokenRequest().then(() => {
+    //             localStorage.setItem('authenticated_user', JSON.stringify(oauth))
+    //         }).catch(() => )},[]);}
 
-        url = "/dashboard";
-    }
-    else{
+    //     url = "/dashboard";
+    // }
+    // else{
         url = oauth.GetRedirectURL();
-    }
+    // }
 
     return (
         <header>
