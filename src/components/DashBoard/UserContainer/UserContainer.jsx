@@ -23,7 +23,7 @@ const UserContainer = () => {
                     </h1>
                 </div>
             </div>
-            <a className='exit' href='/'>
+            <a className='exit' href='/' onClick={oauth.unsign()}>
                 <img src={ExitElement}/>
             </a>
         </div>

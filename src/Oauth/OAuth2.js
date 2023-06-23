@@ -15,12 +15,18 @@ class OAuth2{
         this.avatar = prop.avatar;
         this.avatarURL = prop.avatarURL;
         this.guilds = prop.guilds;
+        this.expiresIn = prop.expiresIn;
+        this.createdAt = prop.createdAt;
 
         this.OAuth = new DiscordOAuth2({
             clientId : this.clientId,
             clientSecret : this.clientSecret,
             redirectUri : this.redirectUri,
         });
+    }
+
+    unsign(){
+        localStorage.removeItem('authenticated_user');
     }
     
     setUserCode(code){
@@ -40,12 +46,26 @@ class OAuth2{
         }).then(async (data) => {
             this.accessToken = data.access_token;
             this.refreshToken = data.refresh_token;
+            this.expiresIn = data.expires_in;
+            this.createdAt = Date.now();
 
             await this.userRequest();
     });
 
-    userRequest = async () => { 
+    refreshTokenRequest = async () => await this.OAuth.tokenRequest({
+        grantType: 'refresh_token',
+        refreshToken: this.refreshToken
+    }).then(async data => {
+        this.accessToken = data.access_token;
+        this.refreshToken = data.refresh_token;
+        this.expiresIn = data.expires_in;
+        this.createdAt = Date.now();
         
+        await this.userRequest();
+        await this.userGuildsRequest();
+    });
+
+    userRequest = async () => {
         await this.OAuth.getUser(this.accessToken).then((response) => {
             this.userId = response.id;
             this.avatar = response.avatar;

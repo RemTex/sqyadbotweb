@@ -3,13 +3,24 @@ import './Header.css';
 import logo from './WLogo.svg';
 import { Link } from "react-router-dom";
 import OAuth2 from "../../../Oauth/OAuth2";
-import { useOAuth } from "../../../OAuthProvider/OAuthProvider";
+import { OAuthContextProvider, useOAuth } from "../../../OAuthProvider/OAuthProvider";
 
 const Header = () => {
 
-    const oauth = useOAuth().oauth
+    const oauth = useOAuth().oauth;
 
-    const url = oauth.GetRedirectURL();
+    let url;
+
+    if(oauth.accessToken != null && oauth.createdAt + oauth.expiresIn <= Date.now()){
+        useEffect(() => {oauth.refreshTokenRequest().then(() => {
+            localStorage.setItem('authenticated_user', JSON.stringify(oauth))
+        })},[]);
+
+        url = "/dashboard";
+    }
+    else{
+        url = oauth.GetRedirectURL();
+    }
 
     return (
         <header>
@@ -27,10 +38,10 @@ const Header = () => {
                 <Link to="/servers">Сервера</Link>
 
             </div>
-                
-            <a href={url} className='DashboardBtn'>
+
+            <Link to={url} className='DashboardBtn'>
                 DashBoard
-            </a>
+            </Link>
         </header>
     );
 }
