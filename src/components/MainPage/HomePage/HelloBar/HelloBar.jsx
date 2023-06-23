@@ -11,7 +11,7 @@ const HelloBar = () => {
                 <div className="logo-btn_container">
                     <img src={biglogo} className="logo-fit"/>
                     <a href="https://discord.com/api/oauth2/authorize?client_id=1119512250118590555&permissions=8&scope=bot" className="AddBtn">
-                        Add to discord
+                        Добавить на сервер
                     </a>
                 </div>
                 <a className="text_container">

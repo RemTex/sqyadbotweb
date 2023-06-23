@@ -18,5 +18,15 @@
 }
 
 .content_container {
-    height: 100vh;
+    height: auto;
+}
+.about_word{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    color: #D8E9A8;
 }

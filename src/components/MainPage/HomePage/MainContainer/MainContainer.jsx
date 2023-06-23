@@ -24,7 +24,7 @@ const MainContainer = () => {
             <div className="invite">
                 <img src={logo} className="logo_middle_fit"></img>
                 <a href="https://discord.com/api/oauth2/authorize?client_id=1119512250118590555&permissions=8&scope=bot" className="AddBtn">
-                    Add to discord
+                    Добавить на сервер
                 </a>
             </div>
             <div className="container">

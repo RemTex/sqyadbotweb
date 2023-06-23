@@ -8,10 +8,10 @@ const AvalilableServer = (props) => {
     return(
         <div className="server_container">
             <img src={arrow} className="arrow_back"/>
-            <img src={server_img} className="server_img"/>
+            <img src={props.data[1]} className="server_img"/>
             <span>
                 <h1>
-                    {}
+                    {props.data[0]}
                 </h1>
             </span>
         </div>

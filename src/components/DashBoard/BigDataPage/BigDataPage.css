@@ -3,16 +3,20 @@
     margin: 0;
     border: none;
 }
-/* div {
+.graph_container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-} */
+}
 
 .section {
-    border: 3px solid black;
-    height: 300px;
+    box-shadow: 0 0 5px 1px white;
+    height: 250px;
     width: 500px;
-    
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    text-align: center;
 }

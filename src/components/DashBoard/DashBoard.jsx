@@ -6,10 +6,13 @@ import logo from "./WLogo.svg";
 import AvalilableServer from "./AvalilableServer/AvalilableServer";
 import NavFunction from "./NavFunctionBar/NavFunction";
 import UserContainer from "./UserContainer/UserContainer";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import { useQuery } from 'react-query';
 import { useOAuth } from "../../OAuthProvider/OAuthProvider";
 import BigData from "./BigDataPage/BigDataPage";
+import ModerationFrame from "./ModerationFrame/ModerationFrame";
+import HelloFrame from "./HelloFrame/HelloFrame";
+import { render } from "react-dom";
 
 const DashBoard = () => {
 
@@ -26,46 +29,48 @@ const DashBoard = () => {
     for (var i in data){
         if (data[i].owner === true){
 
-            guildOwner.push([data[i].name, `https://cdn.discordapp.com/icons/${data[i].id}/${data[i].icon}.png`])
+            guildOwner.push(data[i].name, `https://cdn.discordapp.com/icons/${data[i].id}/${data[i].icon}.png`)
 
             // data[i].name
             // `https://cdn.discordapp.com/icons/${data[i].id}/${data[i].icon}.png`
         }
     }
 
-    let bigdatastate = false;
-    let moderationstate = false;
+    // let bigdatastate = false;
+    // let moderationstate = false;
 
-    function ChangeModerationState(){
-        if (moderationstate == false){
-            moderationstate = true
-            bigdatastate = false
-        }
-        else{
-            moderationstate = false
-            bigdatastate = false
+    // function ChangeModerationState(){
+    //     if (moderationstate == false){
+    //         moderationstate = true;
+    //         bigdatastate = false
+    //         console.log('mod', moderationstate)
+    //     }
+    //     else{
+    //         moderationstate = false;
+    //         bigdatastate = false
+    //         console.log('mod', moderationstate)
 
-        }
-    }
+    //     }
+    // }
 
-    function ChangeBigDataState(){
-        if (bigdatastate == false){
-            moderationstate = false
-            bigdatastate = true
+    // function ChangeBigDataState(){
+    //     if (bigdatastate == false){
+    //         moderationstate = false
+    //         bigdatastate = true
+    //         console.log('data', bigdatastate)
 
-        }
-        else{
-            moderationstate = false
-            bigdatastate = false
+    //     }
+    //     else{
+    //         moderationstate = false
+    //         bigdatastate = false
+    //         console.log('data', bigdatastate)
 
-        }
-    }
-
+    //     }
+    // }
 
     return(
         <div className="main_con">
             <div className="nav_container">
-                
                 <div className="main_logo_container">
                     <div className="logo_container">
                         <Link to="/">
@@ -80,7 +85,7 @@ const DashBoard = () => {
                 {/* Надо добавить роут и как то сделать чтобы
                 выводило то кол-во серверов где есть пользователь
                 с правами администратора (скорее всего через js) */}
-                <AvalilableServer data={data}/>
+                <AvalilableServer data={guildOwner}/>
 
 
                 {/* при выборе сервера будет появляться
@@ -91,14 +96,14 @@ const DashBoard = () => {
                 {/* <NavFunction/> */}
 
                 <nav>
-                    <button onClick={ChangeModerationState} id="first">
+                    <Link to="moderation" id="first">
                         <img src={select_img} className="selected"/>
-                        Moderation
-                    </button>
-                    <button onClick={ChangeBigDataState} id="second">
+                        Модерация
+                    </Link>
+                    <Link to="bigdata" id="second">
                         <img src={select_img} className="selected"/>
-                        BigData
-                    </button>
+                        Большие данные
+                    </Link>
                 </nav>
 
 
@@ -109,11 +114,13 @@ const DashBoard = () => {
                 </div>
                 
             </div>
-
+            
             <div className="page_container">
-                <BigData></BigData>
+                <Routes>
+                    <Route path="dashboard/moderation" element={<ModerationFrame/>}/>
+                    <Route path="dashboard/bigdata" element={<BigData/>}/>
+                </Routes>
             </div>
-
         </div>
     )
 }
