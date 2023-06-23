@@ -5,7 +5,7 @@
 }
 
 .image_fit {
-    height: auto;
+    height: 100%;
     width: 100%;
 }
 
@@ -19,4 +19,14 @@
 
 .content_container {
     height: 100vh;
+}
+.servers_word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 350px;
+    width: 100%;
+    color: #D8E9A8;
+    font-size: 72px;
 }

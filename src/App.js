@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import DashBoard from './components/DashBoard/DashBoard';
 import MainPage from './components/MainPage/MainPage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Servers from './components/MainPage/Servers/Servers';
 import About from './components/MainPage/About/About';
 import Home from './components/MainPage/HomePage/Home';
@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
+      <BrowserRouter>
         <OAuthContextProvider>
           <div>
               <Routes>
@@ -35,7 +35,7 @@ const App = () => {
               </Routes>
           </div>
         </OAuthContextProvider>
-      </Router>
+      </BrowserRouter>
     </QueryClientProvider>
 
     // <div>

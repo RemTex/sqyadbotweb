@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.servers_con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+}
+.aval_servers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 70%;
+}
+.cluster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+
+}
+
+.aval_servers h1 {
+    margin: 0;
+    position: absolute;
+    font-size: 42px;
+    color: black;
+}
